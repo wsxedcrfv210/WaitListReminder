@@ -293,7 +293,7 @@ def handle_message(event):
     print("event.reply_token:", event.reply_token)
     print("event.message.text:", event.message.text)
    
-    if event.message.text == "彰化縣即時空氣品質":
+    if event.message.text == "即時空氣品質":
         content = aqi()
         line_bot_api.reply_message(
             event.reply_token,
@@ -417,8 +417,8 @@ def handle_message(event):
                 text='請選擇',
                 actions=[
                     MessageTemplateAction(
-                        label='彰化縣即時空氣品質',
-                        text='彰化縣即時空氣品質'
+                        label='即時空氣品質',
+                        text='即時空氣品質'
                     ),
                     MessageTemplateAction(
                         label='高速公路路況',
