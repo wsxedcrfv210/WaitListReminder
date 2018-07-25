@@ -228,6 +228,15 @@ def movie():
         content += '{}\n{}\n'.format(title, link)
     return content
 
+def waitlist():
+    chrome_options = webdriver.ChromeOptions()
+    chrome_options.add_argument('--headless')
+    chrome_options.add_argument('--disable-gpu')
+    driver = webdriver.Chrome(chrome_options=chrome_options)
+    driver.get('https://www.ptt.cc/bbs/Gamesale/index.html')
+    soup = BeautifulSoup(driver.page_source, "html.parser")
+
+
 def aqi():
     req = requests.get('http://opendata2.epa.gov.tw/AQI.json')
     data = json.loads(req.content.decode('utf8'))
