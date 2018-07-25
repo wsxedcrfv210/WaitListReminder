@@ -233,9 +233,15 @@ def waitlist():
     chrome_options.add_argument('--headless')
     chrome_options.add_argument('--disable-gpu')
     driver = webdriver.Chrome(chrome_options=chrome_options)
-    driver.get('https://www.ptt.cc/bbs/Gamesale/index.html')
-    soup = BeautifulSoup(driver.page_source, "html.parser")
+    driver.get('http://exam2.acad.nsysu.edu.tw/stunew_query/stunew_top.asp?examno=41&YR=107')
+    select = Select(driver.find_element_by_name('select_name'))
+    
+    content =""
 
+    for op in select.options:
+        content += '{}\n'.format(op.text)
+        
+    return content
 
 def aqi():
     req = requests.get('http://opendata2.epa.gov.tw/AQI.json')
