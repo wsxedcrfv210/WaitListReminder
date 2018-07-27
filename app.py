@@ -229,10 +229,12 @@ def movie():
     return content
 
 def waitlist():
+    
     chrome_options = webdriver.ChromeOptions()
+    chrome_options.binary_location = GOOGLE_CHROME_BIN
     chrome_options.add_argument('--headless')
     chrome_options.add_argument('--disable-gpu')
-    driver = webdriver.Chrome(chrome_options=chrome_options)
+    driver = webdriver.Chrome(executable_path=CHROMEDRIVER_PATH,chrome_options=chrome_options)
     driver.get('http://exam2.acad.nsysu.edu.tw/stunew_query/stunew_top.asp?examno=41&YR=107')
     select = Select(driver.find_element_by_name('select_name'))
     
